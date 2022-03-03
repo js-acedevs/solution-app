@@ -1,0 +1,16 @@
+# An example subscription created for messages tables:
+# !NOTE: You should to run codegen first before using this graphql hook
+# *Codegen will generate a hook like this one => useGetMessagesSubscription
+#
+# *This is an example usage:
+#
+# const { data, loading, error } = useGetMessagesSubscription();
+#
+
+subscription GetMessages {
+  messages {
+    id
+    msg
+    # or use fragments  ...MessageFields
+  }
+}

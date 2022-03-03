@@ -1,0 +1,4 @@
+build/*
+public/*
+src/vite-env.d
+src/reportWebVitals.ts

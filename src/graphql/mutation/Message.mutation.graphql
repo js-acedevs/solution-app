@@ -1,0 +1,18 @@
+# An example mutation created for messages tables:
+# !NOTE: You should to run codegen first before using this graphql hook
+# *Codegen will generate a hook like this one => useInsertMessageMutation
+#
+# *This is an example usage:
+#
+# const [insertMessage, { data, loading, error }] = useInsertMessageMutation({
+#  variables: { id: 1 },
+# });
+#
+
+mutation InsertMessage($msg: String!) {
+  insert_messages_one(object: { msg: $msg }) {
+    id
+    msg
+    # or use fragments  ...DemoFields
+  }
+}

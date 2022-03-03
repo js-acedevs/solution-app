@@ -1,0 +1,9 @@
+/**
+ * *Sort by A to Z, first vendor files then components files
+ * !You should to import all styles
+ */
+
+@import './vendor/tailwindcss/index.css';
+
+// import base styles
+@import './base/reset';
