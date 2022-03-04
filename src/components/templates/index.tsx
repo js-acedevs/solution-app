@@ -3,5 +3,5 @@
  */
 
 /* Import all templates components */
-export * from './AppLayout/AppLayout';
-export * from './PageTemplate/PageTemplate';
+export * from './layouts/AppLayout';
+export * from './layouts/AuthLayout';

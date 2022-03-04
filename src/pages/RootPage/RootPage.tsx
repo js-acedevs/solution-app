@@ -5,14 +5,12 @@ import { ReactElement } from 'react';
 import Title from 'antd/lib/typography/Title';
 
 // templates
-import { PageTemplate } from '@templates';
+import { AppLayout } from '@templates';
 
 const RootPage = (): ReactElement => (
-    <PageTemplate title="Root">
-        <div className="container mx-auto text-center">
-            <Title>RootPage</Title>
-        </div>
-    </PageTemplate>
+    <AppLayout title="Root">
+        <Title>RootPage</Title>
+    </AppLayout>
 );
 
 export default RootPage;
