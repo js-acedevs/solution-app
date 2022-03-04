@@ -1,0 +1,5 @@
+fragment IssueFields on issues {
+    id
+    name
+    description
+}

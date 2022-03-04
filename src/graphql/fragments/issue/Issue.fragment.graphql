@@ -1,0 +1,3 @@
+fragment Issue on issues {
+    ...IssueFields
+}

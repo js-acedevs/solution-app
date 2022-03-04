@@ -1,0 +1,20 @@
+overwrite: true
+schema:
+    - ${GQL_SCHEMA_PATH}:
+          headers:
+              'x-hasura-admin-secret': ${GQL_ADMIN_SECRET}
+documents: 'src/**/*.graphql'
+generates:
+    src/graphql/gen/graphql.tsx:
+        plugins:
+            - 'typescript'
+            - 'typescript-operations'
+            - 'typescript-react-apollo'
+        hooks:
+            afterOneFileWrite:
+                - prettier --write
+    src/graphql/gen/graphql.schema.json:
+        plugins:
+            - 'introspection'
+        config:
+            minify: true

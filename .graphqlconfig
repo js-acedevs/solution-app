@@ -1,0 +1,4 @@
+{
+  "name": "GraphQL Schemas with Shared Types",
+  "schemaPath": "./src/graphql/gen/graphql.schema.json"
+}

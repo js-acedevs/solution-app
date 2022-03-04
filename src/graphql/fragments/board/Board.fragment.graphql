@@ -1,0 +1,7 @@
+fragment Board on board {
+    ...BoardFields
+
+    issues {
+        ...Issue
+    }
+}
