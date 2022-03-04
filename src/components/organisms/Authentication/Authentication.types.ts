@@ -1,8 +1,7 @@
 export type RegisterFormInputs = {
     email: string;
     password: string;
-    fullName: string;
-    companyName: string;
+    name: string;
 };
 
 export type LoginFormInputs = Pick<RegisterFormInputs, 'email' | 'password'>;

@@ -1,0 +1,9 @@
+mutation Register($data: RegisterInput!) {
+    register(data: $data) {
+        token
+        statusCode
+        statusIsOk
+        statusMessage
+        statusPath
+    }
+}

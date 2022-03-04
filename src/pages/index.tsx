@@ -16,8 +16,16 @@ const PageLoader = () => <div className="mx-auto">Loading...</div>;
 export const RootPage = loadable(() => timeout(import('./RootPage/RootPage'), PAGE_LOAD_TIMEOUT), {
     fallback: <PageLoader />,
 });
+
 export const LoginPage = loadable(
     () => timeout(import('./AuthPage/LoginPage'), PAGE_LOAD_TIMEOUT),
+    {
+        fallback: <PageLoader />,
+    }
+);
+
+export const RegisterPage = loadable(
+    () => timeout(import('./AuthPage/RegisterPage'), PAGE_LOAD_TIMEOUT),
     {
         fallback: <PageLoader />,
     }

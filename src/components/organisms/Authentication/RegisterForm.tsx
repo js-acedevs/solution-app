@@ -1,62 +1,58 @@
 import { ReactElement, useContext } from 'react';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { Button, Divider, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 // molecules
 import { InputField } from '@molecules';
 
 // graphql
-import { useLoginMutation } from '@graphql/gen/graphql';
+import { useRegisterMutation } from '@graphql/gen/graphql';
 
 // contexts
 import { AuthContext } from 'contexts/AuthContext';
 
 // validators
-import { LoginFormSchema } from 'validators/Login.validator';
+import { RegisterFormSchema } from 'validators/Register.validator';
 
 // types
-import { LoginFormInputs } from './Authentication.types';
+import { RegisterFormInputs } from './Authentication.types';
 
-export const LoginForm = (): ReactElement => {
+export const RegisterForm = (): ReactElement => {
     // hooks
-    const navigate = useNavigate();
     const { login } = useContext(AuthContext);
 
     // hook form
     const {
         register,
         formState: {
-            errors: { email, password },
+            errors: { name, email, password },
         },
         handleSubmit,
-    } = useForm<LoginFormInputs>({
-        resolver: joiResolver(LoginFormSchema),
+    } = useForm<RegisterFormInputs>({
+        resolver: joiResolver(RegisterFormSchema),
     });
 
     // graphql hook
-    const [loginMutation, { error }] = useLoginMutation({
-        onCompleted: ({ login: loginData }) => {
-            if (loginData?.token) {
-                login(loginData.token);
-                navigate('/');
-            }
+    const [registerMutation, { error }] = useRegisterMutation({
+        onCompleted: ({ register: reg }) => {
+            if (reg?.token) login(reg.token);
         },
         onError: (err) => console.error(err),
     });
 
     // handlers
-    const handleLogin = (formData: LoginFormInputs) => {
-        loginMutation({ variables: { ...formData } });
+    const handleRegister = async (formData: RegisterFormInputs) => {
+        await registerMutation({ variables: { data: { ...formData } } });
     };
 
     return (
         <form
             className="flex flex-col items-center justify-center w-full max-w-3xl py-8 bg-gray-100 rounded px-14"
-            onSubmit={handleSubmit(handleLogin)}
+            onSubmit={handleSubmit(handleRegister)}
         >
             {error && <Typography>Something went wrong! Try again</Typography>}
+            <InputField {...register('name')} label="Full name" fieldError={name} />
             <InputField {...register('email')} label="Email" fieldError={email} />
             <InputField
                 {...register('password')}
@@ -67,10 +63,6 @@ export const LoginForm = (): ReactElement => {
 
             <div className="flex flex-col justify-center w-full pt-3 my-3">
                 <Button variant="contained" type="submit">
-                    Login
-                </Button>
-                <Divider sx={{ my: 3 }}>Or</Divider>
-                <Button to="/auth/register" component={RouterLink} variant="contained">
                     Register
                 </Button>
             </div>

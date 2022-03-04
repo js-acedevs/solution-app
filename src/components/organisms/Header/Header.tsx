@@ -10,7 +10,7 @@ import { Navbar } from '@molecules';
 export const Header = (props: AppBarProps): ReactElement => (
     <AppBar position="static" {...props}>
         <Container maxWidth="xl">
-            <Toolbar disableGutters>
+            <Toolbar disableGutters sx={{ width: 1 }}>
                 <Navbar />
             </Toolbar>
         </Container>

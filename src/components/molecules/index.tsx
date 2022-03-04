@@ -11,3 +11,5 @@ export * from './FollowLink/FollowLink';
 export * from './InputField/InputField';
 export * from './Navbar/Navbar';
 export * from './PageTemplate/PageTemplate';
+export * from './RequireAuthRoute/RequireAuthRoute';
+export * from './RequireAuthRoute/RequireNonAuthRoute';
