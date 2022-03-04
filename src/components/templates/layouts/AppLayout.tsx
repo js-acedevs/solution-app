@@ -10,7 +10,7 @@ import { Header } from '@organisms';
 export const AppLayout: FC<PageTemplateProps> = ({ title, children }): ReactElement => (
     <section>
         <Header />
-        <PageTemplate title={title} className="container mx-auto">
+        <PageTemplate title={title} className="ml-3 overflow-auto">
             {children}
         </PageTemplate>
     </section>

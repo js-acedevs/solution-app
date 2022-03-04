@@ -1,6 +1,6 @@
 import { ReactElement, useContext } from 'react';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { Button, Typography } from '@mui/material';
+import { Alert, Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
 // molecules
@@ -51,7 +51,7 @@ export const RegisterForm = (): ReactElement => {
             className="flex flex-col items-center justify-center w-full max-w-3xl py-8 bg-gray-100 rounded px-14"
             onSubmit={handleSubmit(handleRegister)}
         >
-            {error && <Typography>Something went wrong! Try again</Typography>}
+            {error && <Alert severity="error">TSomething went wrong! Try again!</Alert>}
             <InputField {...register('name')} label="Full name" fieldError={name} />
             <InputField {...register('email')} label="Email" fieldError={email} />
             <InputField

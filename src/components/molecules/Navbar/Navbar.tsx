@@ -39,6 +39,7 @@ export const Navbar = (): ReactElement => {
             >
                 Board
             </NavLink>
+
             {user && (
                 <Button
                     sx={{ color: 'white' }}

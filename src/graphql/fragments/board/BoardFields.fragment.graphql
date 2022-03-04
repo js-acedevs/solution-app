@@ -1,0 +1,5 @@
+fragment BoardFields on board {
+    id
+    name
+    userId
+}

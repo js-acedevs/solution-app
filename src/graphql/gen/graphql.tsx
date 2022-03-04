@@ -90,23 +90,728 @@ export type String_Comparison_Exp = {
     _similar?: Maybe<Scalars['String']>;
 };
 
+/** columns and relationships of "board" */
+export type Board = {
+    __typename?: 'board';
+    created_at: Scalars['timestamptz'];
+    id: Scalars['Int'];
+    /** An array relationship */
+    issues: Array<Issues>;
+    /** An aggregate relationship */
+    issues_aggregate: Issues_Aggregate;
+    name: Scalars['String'];
+    updated_at: Scalars['timestamptz'];
+    /** An object relationship */
+    user: Users;
+    userId: Scalars['Int'];
+};
+
+/** columns and relationships of "board" */
+export type BoardIssuesArgs = {
+    distinct_on?: Maybe<Array<Issues_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Issues_Order_By>>;
+    where?: Maybe<Issues_Bool_Exp>;
+};
+
+/** columns and relationships of "board" */
+export type BoardIssues_AggregateArgs = {
+    distinct_on?: Maybe<Array<Issues_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Issues_Order_By>>;
+    where?: Maybe<Issues_Bool_Exp>;
+};
+
+/** aggregated selection of "board" */
+export type Board_Aggregate = {
+    __typename?: 'board_aggregate';
+    aggregate?: Maybe<Board_Aggregate_Fields>;
+    nodes: Array<Board>;
+};
+
+/** aggregate fields of "board" */
+export type Board_Aggregate_Fields = {
+    __typename?: 'board_aggregate_fields';
+    avg?: Maybe<Board_Avg_Fields>;
+    count: Scalars['Int'];
+    max?: Maybe<Board_Max_Fields>;
+    min?: Maybe<Board_Min_Fields>;
+    stddev?: Maybe<Board_Stddev_Fields>;
+    stddev_pop?: Maybe<Board_Stddev_Pop_Fields>;
+    stddev_samp?: Maybe<Board_Stddev_Samp_Fields>;
+    sum?: Maybe<Board_Sum_Fields>;
+    var_pop?: Maybe<Board_Var_Pop_Fields>;
+    var_samp?: Maybe<Board_Var_Samp_Fields>;
+    variance?: Maybe<Board_Variance_Fields>;
+};
+
+/** aggregate fields of "board" */
+export type Board_Aggregate_FieldsCountArgs = {
+    columns?: Maybe<Array<Board_Select_Column>>;
+    distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "board" */
+export type Board_Aggregate_Order_By = {
+    avg?: Maybe<Board_Avg_Order_By>;
+    count?: Maybe<Order_By>;
+    max?: Maybe<Board_Max_Order_By>;
+    min?: Maybe<Board_Min_Order_By>;
+    stddev?: Maybe<Board_Stddev_Order_By>;
+    stddev_pop?: Maybe<Board_Stddev_Pop_Order_By>;
+    stddev_samp?: Maybe<Board_Stddev_Samp_Order_By>;
+    sum?: Maybe<Board_Sum_Order_By>;
+    var_pop?: Maybe<Board_Var_Pop_Order_By>;
+    var_samp?: Maybe<Board_Var_Samp_Order_By>;
+    variance?: Maybe<Board_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "board" */
+export type Board_Arr_Rel_Insert_Input = {
+    data: Array<Board_Insert_Input>;
+    /** on conflict condition */
+    on_conflict?: Maybe<Board_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Board_Avg_Fields = {
+    __typename?: 'board_avg_fields';
+    id?: Maybe<Scalars['Float']>;
+    userId?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "board" */
+export type Board_Avg_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "board". All fields are combined with a logical 'AND'. */
+export type Board_Bool_Exp = {
+    _and?: Maybe<Array<Board_Bool_Exp>>;
+    _not?: Maybe<Board_Bool_Exp>;
+    _or?: Maybe<Array<Board_Bool_Exp>>;
+    created_at?: Maybe<Timestamptz_Comparison_Exp>;
+    id?: Maybe<Int_Comparison_Exp>;
+    issues?: Maybe<Issues_Bool_Exp>;
+    name?: Maybe<String_Comparison_Exp>;
+    updated_at?: Maybe<Timestamptz_Comparison_Exp>;
+    user?: Maybe<Users_Bool_Exp>;
+    userId?: Maybe<Int_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "board" */
+export enum Board_Constraint {
+    /** unique or primary key constraint */
+    BoardPkey = 'board_pkey',
+}
+
+/** input type for incrementing numeric columns in table "board" */
+export type Board_Inc_Input = {
+    id?: Maybe<Scalars['Int']>;
+    userId?: Maybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "board" */
+export type Board_Insert_Input = {
+    created_at?: Maybe<Scalars['timestamptz']>;
+    id?: Maybe<Scalars['Int']>;
+    issues?: Maybe<Issues_Arr_Rel_Insert_Input>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+    user?: Maybe<Users_Obj_Rel_Insert_Input>;
+    userId?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate max on columns */
+export type Board_Max_Fields = {
+    __typename?: 'board_max_fields';
+    created_at?: Maybe<Scalars['timestamptz']>;
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+    userId?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "board" */
+export type Board_Max_Order_By = {
+    created_at?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+    name?: Maybe<Order_By>;
+    updated_at?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Board_Min_Fields = {
+    __typename?: 'board_min_fields';
+    created_at?: Maybe<Scalars['timestamptz']>;
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+    userId?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "board" */
+export type Board_Min_Order_By = {
+    created_at?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+    name?: Maybe<Order_By>;
+    updated_at?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** response of any mutation on the table "board" */
+export type Board_Mutation_Response = {
+    __typename?: 'board_mutation_response';
+    /** number of rows affected by the mutation */
+    affected_rows: Scalars['Int'];
+    /** data from the rows affected by the mutation */
+    returning: Array<Board>;
+};
+
+/** input type for inserting object relation for remote table "board" */
+export type Board_Obj_Rel_Insert_Input = {
+    data: Board_Insert_Input;
+    /** on conflict condition */
+    on_conflict?: Maybe<Board_On_Conflict>;
+};
+
+/** on conflict condition type for table "board" */
+export type Board_On_Conflict = {
+    constraint: Board_Constraint;
+    update_columns?: Array<Board_Update_Column>;
+    where?: Maybe<Board_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "board". */
+export type Board_Order_By = {
+    created_at?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+    issues_aggregate?: Maybe<Issues_Aggregate_Order_By>;
+    name?: Maybe<Order_By>;
+    updated_at?: Maybe<Order_By>;
+    user?: Maybe<Users_Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: board */
+export type Board_Pk_Columns_Input = {
+    id: Scalars['Int'];
+};
+
+/** select columns of table "board" */
+export enum Board_Select_Column {
+    /** column name */
+    CreatedAt = 'created_at',
+    /** column name */
+    Id = 'id',
+    /** column name */
+    Name = 'name',
+    /** column name */
+    UpdatedAt = 'updated_at',
+    /** column name */
+    UserId = 'userId',
+}
+
+/** input type for updating data in table "board" */
+export type Board_Set_Input = {
+    created_at?: Maybe<Scalars['timestamptz']>;
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+    userId?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate stddev on columns */
+export type Board_Stddev_Fields = {
+    __typename?: 'board_stddev_fields';
+    id?: Maybe<Scalars['Float']>;
+    userId?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "board" */
+export type Board_Stddev_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Board_Stddev_Pop_Fields = {
+    __typename?: 'board_stddev_pop_fields';
+    id?: Maybe<Scalars['Float']>;
+    userId?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "board" */
+export type Board_Stddev_Pop_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Board_Stddev_Samp_Fields = {
+    __typename?: 'board_stddev_samp_fields';
+    id?: Maybe<Scalars['Float']>;
+    userId?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "board" */
+export type Board_Stddev_Samp_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Board_Sum_Fields = {
+    __typename?: 'board_sum_fields';
+    id?: Maybe<Scalars['Int']>;
+    userId?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "board" */
+export type Board_Sum_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** update columns of table "board" */
+export enum Board_Update_Column {
+    /** column name */
+    CreatedAt = 'created_at',
+    /** column name */
+    Id = 'id',
+    /** column name */
+    Name = 'name',
+    /** column name */
+    UpdatedAt = 'updated_at',
+    /** column name */
+    UserId = 'userId',
+}
+
+/** aggregate var_pop on columns */
+export type Board_Var_Pop_Fields = {
+    __typename?: 'board_var_pop_fields';
+    id?: Maybe<Scalars['Float']>;
+    userId?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "board" */
+export type Board_Var_Pop_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Board_Var_Samp_Fields = {
+    __typename?: 'board_var_samp_fields';
+    id?: Maybe<Scalars['Float']>;
+    userId?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "board" */
+export type Board_Var_Samp_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Board_Variance_Fields = {
+    __typename?: 'board_variance_fields';
+    id?: Maybe<Scalars['Float']>;
+    userId?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "board" */
+export type Board_Variance_Order_By = {
+    id?: Maybe<Order_By>;
+    userId?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "issues" */
+export type Issues = {
+    __typename?: 'issues';
+    /** An object relationship */
+    board?: Maybe<Board>;
+    boardId?: Maybe<Scalars['Int']>;
+    created_at: Scalars['timestamptz'];
+    description: Scalars['String'];
+    id: Scalars['Int'];
+    name: Scalars['String'];
+    updated_at: Scalars['timestamptz'];
+};
+
+/** aggregated selection of "issues" */
+export type Issues_Aggregate = {
+    __typename?: 'issues_aggregate';
+    aggregate?: Maybe<Issues_Aggregate_Fields>;
+    nodes: Array<Issues>;
+};
+
+/** aggregate fields of "issues" */
+export type Issues_Aggregate_Fields = {
+    __typename?: 'issues_aggregate_fields';
+    avg?: Maybe<Issues_Avg_Fields>;
+    count: Scalars['Int'];
+    max?: Maybe<Issues_Max_Fields>;
+    min?: Maybe<Issues_Min_Fields>;
+    stddev?: Maybe<Issues_Stddev_Fields>;
+    stddev_pop?: Maybe<Issues_Stddev_Pop_Fields>;
+    stddev_samp?: Maybe<Issues_Stddev_Samp_Fields>;
+    sum?: Maybe<Issues_Sum_Fields>;
+    var_pop?: Maybe<Issues_Var_Pop_Fields>;
+    var_samp?: Maybe<Issues_Var_Samp_Fields>;
+    variance?: Maybe<Issues_Variance_Fields>;
+};
+
+/** aggregate fields of "issues" */
+export type Issues_Aggregate_FieldsCountArgs = {
+    columns?: Maybe<Array<Issues_Select_Column>>;
+    distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "issues" */
+export type Issues_Aggregate_Order_By = {
+    avg?: Maybe<Issues_Avg_Order_By>;
+    count?: Maybe<Order_By>;
+    max?: Maybe<Issues_Max_Order_By>;
+    min?: Maybe<Issues_Min_Order_By>;
+    stddev?: Maybe<Issues_Stddev_Order_By>;
+    stddev_pop?: Maybe<Issues_Stddev_Pop_Order_By>;
+    stddev_samp?: Maybe<Issues_Stddev_Samp_Order_By>;
+    sum?: Maybe<Issues_Sum_Order_By>;
+    var_pop?: Maybe<Issues_Var_Pop_Order_By>;
+    var_samp?: Maybe<Issues_Var_Samp_Order_By>;
+    variance?: Maybe<Issues_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "issues" */
+export type Issues_Arr_Rel_Insert_Input = {
+    data: Array<Issues_Insert_Input>;
+    /** on conflict condition */
+    on_conflict?: Maybe<Issues_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Issues_Avg_Fields = {
+    __typename?: 'issues_avg_fields';
+    boardId?: Maybe<Scalars['Float']>;
+    id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "issues" */
+export type Issues_Avg_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "issues". All fields are combined with a logical 'AND'. */
+export type Issues_Bool_Exp = {
+    _and?: Maybe<Array<Issues_Bool_Exp>>;
+    _not?: Maybe<Issues_Bool_Exp>;
+    _or?: Maybe<Array<Issues_Bool_Exp>>;
+    board?: Maybe<Board_Bool_Exp>;
+    boardId?: Maybe<Int_Comparison_Exp>;
+    created_at?: Maybe<Timestamptz_Comparison_Exp>;
+    description?: Maybe<String_Comparison_Exp>;
+    id?: Maybe<Int_Comparison_Exp>;
+    name?: Maybe<String_Comparison_Exp>;
+    updated_at?: Maybe<Timestamptz_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "issues" */
+export enum Issues_Constraint {
+    /** unique or primary key constraint */
+    IssuesPkey = 'issues_pkey',
+}
+
+/** input type for incrementing numeric columns in table "issues" */
+export type Issues_Inc_Input = {
+    boardId?: Maybe<Scalars['Int']>;
+    id?: Maybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "issues" */
+export type Issues_Insert_Input = {
+    board?: Maybe<Board_Obj_Rel_Insert_Input>;
+    boardId?: Maybe<Scalars['Int']>;
+    created_at?: Maybe<Scalars['timestamptz']>;
+    description?: Maybe<Scalars['String']>;
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** aggregate max on columns */
+export type Issues_Max_Fields = {
+    __typename?: 'issues_max_fields';
+    boardId?: Maybe<Scalars['Int']>;
+    created_at?: Maybe<Scalars['timestamptz']>;
+    description?: Maybe<Scalars['String']>;
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** order by max() on columns of table "issues" */
+export type Issues_Max_Order_By = {
+    boardId?: Maybe<Order_By>;
+    created_at?: Maybe<Order_By>;
+    description?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+    name?: Maybe<Order_By>;
+    updated_at?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Issues_Min_Fields = {
+    __typename?: 'issues_min_fields';
+    boardId?: Maybe<Scalars['Int']>;
+    created_at?: Maybe<Scalars['timestamptz']>;
+    description?: Maybe<Scalars['String']>;
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** order by min() on columns of table "issues" */
+export type Issues_Min_Order_By = {
+    boardId?: Maybe<Order_By>;
+    created_at?: Maybe<Order_By>;
+    description?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+    name?: Maybe<Order_By>;
+    updated_at?: Maybe<Order_By>;
+};
+
+/** response of any mutation on the table "issues" */
+export type Issues_Mutation_Response = {
+    __typename?: 'issues_mutation_response';
+    /** number of rows affected by the mutation */
+    affected_rows: Scalars['Int'];
+    /** data from the rows affected by the mutation */
+    returning: Array<Issues>;
+};
+
+/** on conflict condition type for table "issues" */
+export type Issues_On_Conflict = {
+    constraint: Issues_Constraint;
+    update_columns?: Array<Issues_Update_Column>;
+    where?: Maybe<Issues_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "issues". */
+export type Issues_Order_By = {
+    board?: Maybe<Board_Order_By>;
+    boardId?: Maybe<Order_By>;
+    created_at?: Maybe<Order_By>;
+    description?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+    name?: Maybe<Order_By>;
+    updated_at?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: issues */
+export type Issues_Pk_Columns_Input = {
+    id: Scalars['Int'];
+};
+
+/** select columns of table "issues" */
+export enum Issues_Select_Column {
+    /** column name */
+    BoardId = 'boardId',
+    /** column name */
+    CreatedAt = 'created_at',
+    /** column name */
+    Description = 'description',
+    /** column name */
+    Id = 'id',
+    /** column name */
+    Name = 'name',
+    /** column name */
+    UpdatedAt = 'updated_at',
+}
+
+/** input type for updating data in table "issues" */
+export type Issues_Set_Input = {
+    boardId?: Maybe<Scalars['Int']>;
+    created_at?: Maybe<Scalars['timestamptz']>;
+    description?: Maybe<Scalars['String']>;
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+    updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** aggregate stddev on columns */
+export type Issues_Stddev_Fields = {
+    __typename?: 'issues_stddev_fields';
+    boardId?: Maybe<Scalars['Float']>;
+    id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "issues" */
+export type Issues_Stddev_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Issues_Stddev_Pop_Fields = {
+    __typename?: 'issues_stddev_pop_fields';
+    boardId?: Maybe<Scalars['Float']>;
+    id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "issues" */
+export type Issues_Stddev_Pop_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Issues_Stddev_Samp_Fields = {
+    __typename?: 'issues_stddev_samp_fields';
+    boardId?: Maybe<Scalars['Float']>;
+    id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "issues" */
+export type Issues_Stddev_Samp_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Issues_Sum_Fields = {
+    __typename?: 'issues_sum_fields';
+    boardId?: Maybe<Scalars['Int']>;
+    id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "issues" */
+export type Issues_Sum_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
+/** update columns of table "issues" */
+export enum Issues_Update_Column {
+    /** column name */
+    BoardId = 'boardId',
+    /** column name */
+    CreatedAt = 'created_at',
+    /** column name */
+    Description = 'description',
+    /** column name */
+    Id = 'id',
+    /** column name */
+    Name = 'name',
+    /** column name */
+    UpdatedAt = 'updated_at',
+}
+
+/** aggregate var_pop on columns */
+export type Issues_Var_Pop_Fields = {
+    __typename?: 'issues_var_pop_fields';
+    boardId?: Maybe<Scalars['Float']>;
+    id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "issues" */
+export type Issues_Var_Pop_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Issues_Var_Samp_Fields = {
+    __typename?: 'issues_var_samp_fields';
+    boardId?: Maybe<Scalars['Float']>;
+    id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "issues" */
+export type Issues_Var_Samp_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Issues_Variance_Fields = {
+    __typename?: 'issues_variance_fields';
+    boardId?: Maybe<Scalars['Float']>;
+    id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "issues" */
+export type Issues_Variance_Order_By = {
+    boardId?: Maybe<Order_By>;
+    id?: Maybe<Order_By>;
+};
+
 /** mutation root */
 export type Mutation_Root = {
     __typename?: 'mutation_root';
+    /** delete data from the table: "board" */
+    delete_board?: Maybe<Board_Mutation_Response>;
+    /** delete single row from the table: "board" */
+    delete_board_by_pk?: Maybe<Board>;
+    /** delete data from the table: "issues" */
+    delete_issues?: Maybe<Issues_Mutation_Response>;
+    /** delete single row from the table: "issues" */
+    delete_issues_by_pk?: Maybe<Issues>;
     /** delete data from the table: "users" */
     delete_users?: Maybe<Users_Mutation_Response>;
     /** delete single row from the table: "users" */
     delete_users_by_pk?: Maybe<Users>;
+    /** insert data into the table: "board" */
+    insert_board?: Maybe<Board_Mutation_Response>;
+    /** insert a single row into the table: "board" */
+    insert_board_one?: Maybe<Board>;
+    /** insert data into the table: "issues" */
+    insert_issues?: Maybe<Issues_Mutation_Response>;
+    /** insert a single row into the table: "issues" */
+    insert_issues_one?: Maybe<Issues>;
     /** insert data into the table: "users" */
     insert_users?: Maybe<Users_Mutation_Response>;
     /** insert a single row into the table: "users" */
     insert_users_one?: Maybe<Users>;
     login?: Maybe<LoginOutput>;
     register?: Maybe<RegisterOutput>;
+    /** update data of the table: "board" */
+    update_board?: Maybe<Board_Mutation_Response>;
+    /** update single row of the table: "board" */
+    update_board_by_pk?: Maybe<Board>;
+    /** update data of the table: "issues" */
+    update_issues?: Maybe<Issues_Mutation_Response>;
+    /** update single row of the table: "issues" */
+    update_issues_by_pk?: Maybe<Issues>;
     /** update data of the table: "users" */
     update_users?: Maybe<Users_Mutation_Response>;
     /** update single row of the table: "users" */
     update_users_by_pk?: Maybe<Users>;
+};
+
+/** mutation root */
+export type Mutation_RootDelete_BoardArgs = {
+    where: Board_Bool_Exp;
+};
+
+/** mutation root */
+export type Mutation_RootDelete_Board_By_PkArgs = {
+    id: Scalars['Int'];
+};
+
+/** mutation root */
+export type Mutation_RootDelete_IssuesArgs = {
+    where: Issues_Bool_Exp;
+};
+
+/** mutation root */
+export type Mutation_RootDelete_Issues_By_PkArgs = {
+    id: Scalars['Int'];
 };
 
 /** mutation root */
@@ -117,6 +822,30 @@ export type Mutation_RootDelete_UsersArgs = {
 /** mutation root */
 export type Mutation_RootDelete_Users_By_PkArgs = {
     id: Scalars['Int'];
+};
+
+/** mutation root */
+export type Mutation_RootInsert_BoardArgs = {
+    objects: Array<Board_Insert_Input>;
+    on_conflict?: Maybe<Board_On_Conflict>;
+};
+
+/** mutation root */
+export type Mutation_RootInsert_Board_OneArgs = {
+    object: Board_Insert_Input;
+    on_conflict?: Maybe<Board_On_Conflict>;
+};
+
+/** mutation root */
+export type Mutation_RootInsert_IssuesArgs = {
+    objects: Array<Issues_Insert_Input>;
+    on_conflict?: Maybe<Issues_On_Conflict>;
+};
+
+/** mutation root */
+export type Mutation_RootInsert_Issues_OneArgs = {
+    object: Issues_Insert_Input;
+    on_conflict?: Maybe<Issues_On_Conflict>;
 };
 
 /** mutation root */
@@ -139,6 +868,34 @@ export type Mutation_RootLoginArgs = {
 /** mutation root */
 export type Mutation_RootRegisterArgs = {
     data?: Maybe<RegisterInput>;
+};
+
+/** mutation root */
+export type Mutation_RootUpdate_BoardArgs = {
+    _inc?: Maybe<Board_Inc_Input>;
+    _set?: Maybe<Board_Set_Input>;
+    where: Board_Bool_Exp;
+};
+
+/** mutation root */
+export type Mutation_RootUpdate_Board_By_PkArgs = {
+    _inc?: Maybe<Board_Inc_Input>;
+    _set?: Maybe<Board_Set_Input>;
+    pk_columns: Board_Pk_Columns_Input;
+};
+
+/** mutation root */
+export type Mutation_RootUpdate_IssuesArgs = {
+    _inc?: Maybe<Issues_Inc_Input>;
+    _set?: Maybe<Issues_Set_Input>;
+    where: Issues_Bool_Exp;
+};
+
+/** mutation root */
+export type Mutation_RootUpdate_Issues_By_PkArgs = {
+    _inc?: Maybe<Issues_Inc_Input>;
+    _set?: Maybe<Issues_Set_Input>;
+    pk_columns: Issues_Pk_Columns_Input;
 };
 
 /** mutation root */
@@ -177,6 +934,18 @@ export type Query_Root = {
     auth_user: Array<Users>;
     /** execute function "auth_user" and query aggregates on result of table type "users" */
     auth_user_aggregate: Users_Aggregate;
+    /** fetch data from the table: "board" */
+    board: Array<Board>;
+    /** fetch aggregated fields from the table: "board" */
+    board_aggregate: Board_Aggregate;
+    /** fetch data from the table: "board" using primary key columns */
+    board_by_pk?: Maybe<Board>;
+    /** An array relationship */
+    issues: Array<Issues>;
+    /** An aggregate relationship */
+    issues_aggregate: Issues_Aggregate;
+    /** fetch data from the table: "issues" using primary key columns */
+    issues_by_pk?: Maybe<Issues>;
     /** fetch data from the table: "users" */
     users: Array<Users>;
     /** fetch aggregated fields from the table: "users" */
@@ -199,6 +968,46 @@ export type Query_RootAuth_User_AggregateArgs = {
     offset?: Maybe<Scalars['Int']>;
     order_by?: Maybe<Array<Users_Order_By>>;
     where?: Maybe<Users_Bool_Exp>;
+};
+
+export type Query_RootBoardArgs = {
+    distinct_on?: Maybe<Array<Board_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Board_Order_By>>;
+    where?: Maybe<Board_Bool_Exp>;
+};
+
+export type Query_RootBoard_AggregateArgs = {
+    distinct_on?: Maybe<Array<Board_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Board_Order_By>>;
+    where?: Maybe<Board_Bool_Exp>;
+};
+
+export type Query_RootBoard_By_PkArgs = {
+    id: Scalars['Int'];
+};
+
+export type Query_RootIssuesArgs = {
+    distinct_on?: Maybe<Array<Issues_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Issues_Order_By>>;
+    where?: Maybe<Issues_Bool_Exp>;
+};
+
+export type Query_RootIssues_AggregateArgs = {
+    distinct_on?: Maybe<Array<Issues_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Issues_Order_By>>;
+    where?: Maybe<Issues_Bool_Exp>;
+};
+
+export type Query_RootIssues_By_PkArgs = {
+    id: Scalars['Int'];
 };
 
 export type Query_RootUsersArgs = {
@@ -227,6 +1036,18 @@ export type Subscription_Root = {
     auth_user: Array<Users>;
     /** execute function "auth_user" and query aggregates on result of table type "users" */
     auth_user_aggregate: Users_Aggregate;
+    /** fetch data from the table: "board" */
+    board: Array<Board>;
+    /** fetch aggregated fields from the table: "board" */
+    board_aggregate: Board_Aggregate;
+    /** fetch data from the table: "board" using primary key columns */
+    board_by_pk?: Maybe<Board>;
+    /** An array relationship */
+    issues: Array<Issues>;
+    /** An aggregate relationship */
+    issues_aggregate: Issues_Aggregate;
+    /** fetch data from the table: "issues" using primary key columns */
+    issues_by_pk?: Maybe<Issues>;
     /** fetch data from the table: "users" */
     users: Array<Users>;
     /** fetch aggregated fields from the table: "users" */
@@ -249,6 +1070,46 @@ export type Subscription_RootAuth_User_AggregateArgs = {
     offset?: Maybe<Scalars['Int']>;
     order_by?: Maybe<Array<Users_Order_By>>;
     where?: Maybe<Users_Bool_Exp>;
+};
+
+export type Subscription_RootBoardArgs = {
+    distinct_on?: Maybe<Array<Board_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Board_Order_By>>;
+    where?: Maybe<Board_Bool_Exp>;
+};
+
+export type Subscription_RootBoard_AggregateArgs = {
+    distinct_on?: Maybe<Array<Board_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Board_Order_By>>;
+    where?: Maybe<Board_Bool_Exp>;
+};
+
+export type Subscription_RootBoard_By_PkArgs = {
+    id: Scalars['Int'];
+};
+
+export type Subscription_RootIssuesArgs = {
+    distinct_on?: Maybe<Array<Issues_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Issues_Order_By>>;
+    where?: Maybe<Issues_Bool_Exp>;
+};
+
+export type Subscription_RootIssues_AggregateArgs = {
+    distinct_on?: Maybe<Array<Issues_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Issues_Order_By>>;
+    where?: Maybe<Issues_Bool_Exp>;
+};
+
+export type Subscription_RootIssues_By_PkArgs = {
+    id: Scalars['Int'];
 };
 
 export type Subscription_RootUsersArgs = {
@@ -287,12 +1148,34 @@ export type Timestamptz_Comparison_Exp = {
 /** columns and relationships of "users" */
 export type Users = {
     __typename?: 'users';
+    /** An array relationship */
+    boards: Array<Board>;
+    /** An aggregate relationship */
+    boards_aggregate: Board_Aggregate;
     createdAt: Scalars['timestamptz'];
     email: Scalars['String'];
     id: Scalars['Int'];
     name: Scalars['String'];
     password: Scalars['String'];
     updatedAt: Scalars['timestamptz'];
+};
+
+/** columns and relationships of "users" */
+export type UsersBoardsArgs = {
+    distinct_on?: Maybe<Array<Board_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Board_Order_By>>;
+    where?: Maybe<Board_Bool_Exp>;
+};
+
+/** columns and relationships of "users" */
+export type UsersBoards_AggregateArgs = {
+    distinct_on?: Maybe<Array<Board_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Board_Order_By>>;
+    where?: Maybe<Board_Bool_Exp>;
 };
 
 /** aggregated selection of "users" */
@@ -335,6 +1218,7 @@ export type Users_Bool_Exp = {
     _and?: Maybe<Array<Users_Bool_Exp>>;
     _not?: Maybe<Users_Bool_Exp>;
     _or?: Maybe<Array<Users_Bool_Exp>>;
+    boards?: Maybe<Board_Bool_Exp>;
     createdAt?: Maybe<Timestamptz_Comparison_Exp>;
     email?: Maybe<String_Comparison_Exp>;
     id?: Maybe<Int_Comparison_Exp>;
@@ -358,6 +1242,7 @@ export type Users_Inc_Input = {
 
 /** input type for inserting data into table "users" */
 export type Users_Insert_Input = {
+    boards?: Maybe<Board_Arr_Rel_Insert_Input>;
     createdAt?: Maybe<Scalars['timestamptz']>;
     email?: Maybe<Scalars['String']>;
     id?: Maybe<Scalars['Int']>;
@@ -397,6 +1282,13 @@ export type Users_Mutation_Response = {
     returning: Array<Users>;
 };
 
+/** input type for inserting object relation for remote table "users" */
+export type Users_Obj_Rel_Insert_Input = {
+    data: Users_Insert_Input;
+    /** on conflict condition */
+    on_conflict?: Maybe<Users_On_Conflict>;
+};
+
 /** on conflict condition type for table "users" */
 export type Users_On_Conflict = {
     constraint: Users_Constraint;
@@ -406,6 +1298,7 @@ export type Users_On_Conflict = {
 
 /** Ordering options when selecting data from "users". */
 export type Users_Order_By = {
+    boards_aggregate?: Maybe<Board_Aggregate_Order_By>;
     createdAt?: Maybe<Order_By>;
     email?: Maybe<Order_By>;
     id?: Maybe<Order_By>;
@@ -503,11 +1396,41 @@ export type Users_Variance_Fields = {
     id?: Maybe<Scalars['Float']>;
 };
 
+export type BoardFragment = { __typename?: 'board' } & {
+    issues: Array<{ __typename?: 'issues' } & IssueFragment>;
+} & BoardFieldsFragment;
+
+export type BoardFieldsFragment = { __typename?: 'board' } & Pick<Board, 'id' | 'name' | 'userId'>;
+
+export type IssueFragment = { __typename?: 'issues' } & IssueFieldsFragment;
+
+export type IssueFieldsFragment = { __typename?: 'issues' } & Pick<
+    Issues,
+    'id' | 'name' | 'description'
+>;
+
 export type UserFragment = { __typename?: 'users' } & UserFieldsFragment;
 
 export type AuthUserFragment = { __typename?: 'users' } & UserFieldsFragment;
 
 export type UserFieldsFragment = { __typename?: 'users' } & Pick<Users, 'id' | 'name' | 'email'>;
+
+export type InsertBoardMutationVariables = Exact<{
+    name: Scalars['String'];
+    userId: Scalars['Int'];
+}>;
+
+export type InsertBoardMutation = { __typename?: 'mutation_root' } & {
+    insertBoardOne?: Maybe<{ __typename?: 'board' } & Pick<Board, 'id'>>;
+};
+
+export type DeleteBoardByIdMutationVariables = Exact<{
+    id: Scalars['Int'];
+}>;
+
+export type DeleteBoardByIdMutation = { __typename?: 'mutation_root' } & {
+    delete_board_by_pk?: Maybe<{ __typename?: 'board' } & Pick<Board, 'id'>>;
+};
 
 export type LoginMutationVariables = Exact<{
     email: Scalars['String'];
@@ -542,6 +1465,42 @@ export type AuthUserQuery = { __typename?: 'query_root' } & {
     authUser: Array<{ __typename?: 'users' } & UserFragment>;
 };
 
+export type GetBoardIssuesSubscriptionVariables = Exact<{ [key: string]: never }>;
+
+export type GetBoardIssuesSubscription = { __typename?: 'subscription_root' } & {
+    board: Array<{ __typename?: 'board' } & BoardFragment>;
+};
+
+export const BoardFieldsFragmentDoc = gql`
+    fragment BoardFields on board {
+        id
+        name
+        userId
+    }
+`;
+export const IssueFieldsFragmentDoc = gql`
+    fragment IssueFields on issues {
+        id
+        name
+        description
+    }
+`;
+export const IssueFragmentDoc = gql`
+    fragment Issue on issues {
+        ...IssueFields
+    }
+    ${IssueFieldsFragmentDoc}
+`;
+export const BoardFragmentDoc = gql`
+    fragment Board on board {
+        ...BoardFields
+        issues {
+            ...Issue
+        }
+    }
+    ${BoardFieldsFragmentDoc}
+    ${IssueFragmentDoc}
+`;
 export const UserFieldsFragmentDoc = gql`
     fragment UserFields on users {
         id
@@ -561,6 +1520,98 @@ export const AuthUserFragmentDoc = gql`
     }
     ${UserFieldsFragmentDoc}
 `;
+export const InsertBoardDocument = gql`
+    mutation InsertBoard($name: String!, $userId: Int!) {
+        insertBoardOne: insert_board_one(object: { name: $name, userId: $userId }) {
+            id
+        }
+    }
+`;
+export type InsertBoardMutationFn = Apollo.MutationFunction<
+    InsertBoardMutation,
+    InsertBoardMutationVariables
+>;
+
+/**
+ * __useInsertBoardMutation__
+ *
+ * To run a mutation, you first call `useInsertBoardMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useInsertBoardMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [insertBoardMutation, { data, loading, error }] = useInsertBoardMutation({
+ *   variables: {
+ *      name: // value for 'name'
+ *      userId: // value for 'userId'
+ *   },
+ * });
+ */
+export function useInsertBoardMutation(
+    baseOptions?: Apollo.MutationHookOptions<InsertBoardMutation, InsertBoardMutationVariables>
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<InsertBoardMutation, InsertBoardMutationVariables>(
+        InsertBoardDocument,
+        options
+    );
+}
+export type InsertBoardMutationHookResult = ReturnType<typeof useInsertBoardMutation>;
+export type InsertBoardMutationResult = Apollo.MutationResult<InsertBoardMutation>;
+export type InsertBoardMutationOptions = Apollo.BaseMutationOptions<
+    InsertBoardMutation,
+    InsertBoardMutationVariables
+>;
+export const DeleteBoardByIdDocument = gql`
+    mutation DeleteBoardById($id: Int!) {
+        delete_board_by_pk(id: $id) {
+            id
+        }
+    }
+`;
+export type DeleteBoardByIdMutationFn = Apollo.MutationFunction<
+    DeleteBoardByIdMutation,
+    DeleteBoardByIdMutationVariables
+>;
+
+/**
+ * __useDeleteBoardByIdMutation__
+ *
+ * To run a mutation, you first call `useDeleteBoardByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteBoardByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteBoardByIdMutation, { data, loading, error }] = useDeleteBoardByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteBoardByIdMutation(
+    baseOptions?: Apollo.MutationHookOptions<
+        DeleteBoardByIdMutation,
+        DeleteBoardByIdMutationVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useMutation<DeleteBoardByIdMutation, DeleteBoardByIdMutationVariables>(
+        DeleteBoardByIdDocument,
+        options
+    );
+}
+export type DeleteBoardByIdMutationHookResult = ReturnType<typeof useDeleteBoardByIdMutation>;
+export type DeleteBoardByIdMutationResult = Apollo.MutationResult<DeleteBoardByIdMutation>;
+export type DeleteBoardByIdMutationOptions = Apollo.BaseMutationOptions<
+    DeleteBoardByIdMutation,
+    DeleteBoardByIdMutationVariables
+>;
 export const LoginDocument = gql`
     mutation Login($email: String!, $password: String!) {
         login(data: { email: $email, password: $password }) {
@@ -691,3 +1742,42 @@ export function useAuthUserLazyQuery(
 export type AuthUserQueryHookResult = ReturnType<typeof useAuthUserQuery>;
 export type AuthUserLazyQueryHookResult = ReturnType<typeof useAuthUserLazyQuery>;
 export type AuthUserQueryResult = Apollo.QueryResult<AuthUserQuery, AuthUserQueryVariables>;
+export const GetBoardIssuesDocument = gql`
+    subscription GetBoardIssues {
+        board: board {
+            ...Board
+        }
+    }
+    ${BoardFragmentDoc}
+`;
+
+/**
+ * __useGetBoardIssuesSubscription__
+ *
+ * To run a query within a React component, call `useGetBoardIssuesSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useGetBoardIssuesSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetBoardIssuesSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetBoardIssuesSubscription(
+    baseOptions?: Apollo.SubscriptionHookOptions<
+        GetBoardIssuesSubscription,
+        GetBoardIssuesSubscriptionVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions };
+    return Apollo.useSubscription<GetBoardIssuesSubscription, GetBoardIssuesSubscriptionVariables>(
+        GetBoardIssuesDocument,
+        options
+    );
+}
+export type GetBoardIssuesSubscriptionHookResult = ReturnType<typeof useGetBoardIssuesSubscription>;
+export type GetBoardIssuesSubscriptionResult =
+    Apollo.SubscriptionResult<GetBoardIssuesSubscription>;

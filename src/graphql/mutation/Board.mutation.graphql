@@ -1,0 +1,11 @@
+mutation InsertBoard($name: String!, $userId: Int!) {
+    insertBoardOne: insert_board_one(object: { name: $name, userId: $userId }) {
+        id
+    }
+}
+
+mutation DeleteBoardById($id: Int!) {
+    delete_board_by_pk(id: $id) {
+        id
+    }
+}
