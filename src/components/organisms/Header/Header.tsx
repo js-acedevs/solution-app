@@ -1,11 +1,18 @@
 // react
 import { ReactElement } from 'react';
 
-// antd
-import { Layout } from 'antd';
+// mui
+import { AppBar, Container, Toolbar, AppBarProps } from '@mui/material';
 
-export const Header = (): ReactElement => (
-    <Layout.Header>
-        <p>CRA Template Header</p>
-    </Layout.Header>
+// molecules
+import { Navbar } from '@molecules';
+
+export const Header = (props: AppBarProps): ReactElement => (
+    <AppBar position="static" {...props}>
+        <Container maxWidth="xl">
+            <Toolbar disableGutters>
+                <Navbar />
+            </Toolbar>
+        </Container>
+    </AppBar>
 );

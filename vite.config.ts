@@ -36,7 +36,7 @@ export default defineConfig({
         alias: {
             '@atoms': resolve(__dirname, 'src/components/atoms'),
             '@molecules': resolve(__dirname, 'src/components/molecules'),
-            '@organisms': resolve(__dirname, 'src/components/organisms'),
+            '@organisms': resolve(__dirname, 'src/components/organisms/index'),
             '@templates': resolve(__dirname, 'src/components/templates'),
             '@pages': resolve(__dirname, 'src/pages/index'),
             '@config/*': resolve(__dirname, 'src/config/*'),

@@ -1,4 +1,4 @@
 export interface AuthLayoutProps {
-    heading: string;
+    heading?: string;
     title: string;
 }

@@ -2,14 +2,14 @@
 import { ReactElement } from 'react';
 
 // templates
-import { PageTemplate } from '@templates';
+import { AuthLayout } from '@templates';
 
 const ErrorPage = (): ReactElement => (
-    <PageTemplate title="Error">
+    <AuthLayout title="Error">
         <div className="flex flex-col items-center text-2xl">
             <h1>Error Page</h1>
         </div>
-    </PageTemplate>
+    </AuthLayout>
 );
 
 export default ErrorPage;

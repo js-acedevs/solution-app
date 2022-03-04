@@ -1,9 +1,6 @@
 // react
 import { FC, ReactElement } from 'react';
 
-// antd
-import { Layout } from 'antd';
-
 // helmet
 import { Helmet } from 'react-helmet';
 
@@ -19,8 +16,8 @@ export const PageTemplate: FC<PageTemplateProps> = ({
         <Helmet>
             <title>{`APP - ${title}`}</title>
         </Helmet>
-        <Layout.Content role="main" className={className}>
+        <main role="main" className={className}>
             {children}
-        </Layout.Content>
+        </main>
     </>
 );

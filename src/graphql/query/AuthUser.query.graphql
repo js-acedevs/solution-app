@@ -1,0 +1,5 @@
+query AuthUser {
+    authUser: auth_user {
+        ...User
+    }
+}

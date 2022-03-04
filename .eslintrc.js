@@ -170,81 +170,41 @@ module.exports = {
                         position: 'after',
                     },
                     {
-                        pattern: '@atoms/**',
+                        pattern: '@atoms',
                         patternOptions: {
-                            pattern: '@molecules/**',
+                            pattern: '@molecules',
                         },
                         group: 'external',
                         position: 'after',
                     },
                     {
-                        pattern: '@molecules/**',
+                        pattern: '@molecules',
                         patternOptions: {
-                            pattern: '@organisms/**',
+                            pattern: '@organisms',
                         },
                         group: 'external',
                         position: 'after',
                     },
                     {
-                        pattern: '@organisms/**',
+                        pattern: '@organisms',
                         patternOptions: {
-                            pattern: '@templates/**',
+                            pattern: '@templates',
                         },
                         group: 'external',
                         position: 'after',
                     },
                     {
-                        pattern: '@templates/**',
+                        pattern: '@templates',
                         patternOptions: {
-                            pattern: '@pages/**',
+                            pattern: '@pages',
                         },
                         group: 'external',
                         position: 'after',
                     },
                     {
-                        pattern: '@pages/**',
+                        pattern: '@pages',
                         patternOptions: {
-                            pattern: '@templates/**',
-                        },
-                        group: 'external',
-                        position: 'after',
-                    },
-                    {
-                        pattern: '@graphql/**',
-                        patternOptions: {
-                            pattern: '@contexts/**',
-                        },
-                        group: 'external',
-                        position: 'after',
-                    },
-                    {
-                        pattern: '@utils/**',
-                        patternOptions: {
-                            pattern: '@graphql/**',
-                        },
-                        group: 'external',
-                        position: 'after',
-                    },
-                    {
-                        pattern: '@validators/**',
-                        patternOptions: {
-                            pattern: '@utils/**',
-                        },
-                        group: 'external',
-                        position: 'after',
-                    },
-                    {
-                        pattern: '@enums/**',
-                        patternOptions: {
-                            pattern: ['@validators/**'],
-                        },
-                        group: 'external',
-                        position: 'after',
-                    },
-                    {
-                        pattern: '@interfaces/**',
-                        patternOptions: {
-                            pattern: '@enums/**',
+                            pattern: '@templates',
                         },
                         group: 'external',
                         position: 'after',
