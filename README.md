@@ -57,7 +57,7 @@ npm run build
 after that do
 
 ```bash
-npm start
+npm run serve
 ```
 
 You can visit <a href="http://localhost:3000">http://localhost:3000</a> to view the running application
