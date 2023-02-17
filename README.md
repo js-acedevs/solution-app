@@ -1,7 +1,5 @@
 ## Getting Started
 
-Solution App is a task given by Solution
-
 ## Setup
 
 First, clone the repository into your local machine:
